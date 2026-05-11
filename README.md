@@ -1,12 +1,17 @@
 # GEOS-Chem Olkaria Carbon Simulation
 
-Scripts and configuration for running GEOS-Chem nested simulations over Olkaria (Africa).
+Automation scripts and environment configuration for GEOS-Chem nested-grid simulations over Olkaria, Kenya.
 
-## Setup
-The simulation runs on WSL2 (Ubuntu 24.04). It requires a significant amount of memory for the nested grid.
+## Performance Optimization
+This setup is optimized for local execution on a 16GB RAM machine.
 
-### WSL Configuration
-Edit `%USERPROFILE%\.wslconfig`:
+### Grid Refinement
+The simulation domain has been narrowed to East Africa to reduce the memory footprint by ~90% while maintaining high resolution for the target area:
+- **Longitude**: 30.0 to 45.0
+- **Latitude**: -10.0 to 10.0
+
+### WSL2 Resource Management
+Ensure `%USERPROFILE%\.wslconfig` is configured to prevent OOM (Out Of Memory) kills:
 ```ini
 [wsl2]
 memory=12GB
@@ -14,25 +19,22 @@ swap=24GB
 processors=4
 ```
 
-### Environment
-Source the environment script before running:
-```bash
-source env_setup.sh
-```
+## Setup & Execution
+1. **Environment**:
+   ```bash
+   source env_setup.sh
+   ```
+2. **Launch**:
+   ```bash
+   bash start_simulation.sh
+   ```
+3. **Monitor**:
+   ```bash
+   tail -f /home/kostas/GEOS-Chem/Runs/Olkaria_Carbon/simulation_jan2019.log
+   ```
 
-## Running the Simulation
-Use `start_simulation.sh` to run the model in the background:
-```bash
-bash start_simulation.sh
-```
-
-To check progress:
-```bash
-tail -f /home/kostas/GEOS-Chem/Runs/Olkaria_Carbon/simulation_jan2019.log
-```
-
-## Scripts
-- `env_setup.sh`: Sets up NetCDF/HDF5 and Conda paths.
-- `start_simulation.sh`: Runs the simulation with nohup.
-- `compile_gc.sh`: Compilation script.
-- `diag.sh`: System and dependency check.
+## Repository Structure
+- `env_setup.sh`: Path and dependency management.
+- `start_simulation.sh`: Background execution wrapper (nohup).
+- `utils/`: Configuration patching and data management scripts.
+- `diag.sh`: System diagnostic utility.
