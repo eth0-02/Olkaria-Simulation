@@ -1,0 +1,12 @@
+# Logs and temporary files
+*.log
+*.txt
+*.zip
+
+# Subdirectories
+GCClassic/
+aws/
+
+# System files
+.DS_Store
+Thumbs.db
