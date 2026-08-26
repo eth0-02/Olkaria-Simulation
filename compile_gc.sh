@@ -1,6 +1,6 @@
 #!/bin/bash
 source $HOME/env_setup.sh
-cd /home/kostas/GEOS-Chem/Runs/Olkaria_Carbon
+cd $HOME/GEOS-Chem/Runs/Olkaria_Carbon
 mkdir -p build
 cd build
 
