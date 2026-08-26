@@ -1,6 +1,7 @@
 import yaml
 
-config_path = '/home/kostas/GEOS-Chem/Runs/Olkaria_Carbon/geoschem_config.yml'
+import os
+config_path = os.path.expanduser('~/GEOS-Chem/Runs/Olkaria_Carbon/geoschem_config.yml'
 
 with open(config_path, 'r') as f:
     config = yaml.safe_load(f)
