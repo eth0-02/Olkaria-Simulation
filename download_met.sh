@@ -1,10 +1,10 @@
 #!/bin/bash
 source $HOME/env_setup.sh
-RUNDIR="/home/kostas/GEOS-Chem/Runs/Olkaria_Carbon"
+RUNDIR="$HOME/GEOS-Chem/Runs/Olkaria_Carbon"
 cd $RUNDIR
 
 # Create Data directory if it doesn't exist
-mkdir -p /home/kostas/GEOS-Chem/Data
+mkdir -p $HOME/GEOS-Chem/Data
 
 # Run download script
 # Portal: aws
