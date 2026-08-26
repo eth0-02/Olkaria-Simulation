@@ -30,7 +30,7 @@ processors=4
    ```
 3. **Monitor**:
    ```bash
-   tail -f /home/kostas/GEOS-Chem/Runs/Olkaria_Carbon/simulation_jan2019.log
+   tail -f $HOME/GEOS-Chem/Runs/Olkaria_Carbon/simulation_jan2019.log
    ```
 
 ## Repository Structure
