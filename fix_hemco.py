@@ -1,4 +1,5 @@
-config_path = '/home/kostas/GEOS-Chem/Runs/Olkaria_Carbon/HEMCO_Config.rc'
+import os
+config_path = os.path.expanduser('~/GEOS-Chem/Runs/Olkaria_Carbon/HEMCO_Config.rc'
 
 with open(config_path, 'r') as f:
     lines = f.readlines()
